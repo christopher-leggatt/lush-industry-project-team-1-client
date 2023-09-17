@@ -1,0 +1,198 @@
+.item-section {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background: #FAFAFA;
+}
+
+.slide {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100vw;
+
+    &__wrapper {
+        position: relative;
+        width: 100%;
+        background-color: #fff;
+    }
+
+    &__header {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        width: 100vw;
+        top: 2rem;
+        z-index: 100;
+    }
+
+    &__button {}
+
+    &__button-icon {
+        &--back {
+            margin-left: 1rem;
+            width: 24px;
+            height: 24px;
+        }
+
+        &--accessibility {
+            margin-right: 1rem;
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    &__image-container {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-y: hidden;
+        overflow-x: auto;
+        height: 300px;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__image {
+        flex: 0 0 auto;
+        height: 100%;
+        width: auto;
+    }
+
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    margin-top: 300px;
+    justify-content: center;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+
+    }
+
+    &__title-container {}
+
+    &__title {
+        font-family: 'SF Pro Display';
+        font-size: 24px;
+        letter-spacing: -3;
+        font-weight: bold;
+
+        &--price {}
+    }
+
+    &__stock-container {}
+
+    &__stock-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__icon {
+        width: 18px;
+        height: 18px;
+
+        &--stock {}
+    }
+
+    &__stock {
+        font-family: 'SF Pro Display';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+
+    &__detail {
+        font-family: 'SF Pro Display';
+        font-size: 18px;
+        letter-spacing: 0;
+        font-weight: medium;
+        text-align: left;
+        padding: 1rem;
+    }
+
+
+    &__button-container {
+        padding: 1rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__button {
+        background-color: #1d1d1d;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        padding: 10px 10px 10px 38px;
+        width: 100%;
+        border-radius: 12px;
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: -0.54px;
+        border: none;
+
+        &--add-to-cart {}
+    }
+
+    &__button-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+}
+
+.suggested {
+    padding: 0 1rem 24px;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__heading {
+        font-family: 'SF Pro Display';
+        font-size: 24px;
+        letter-spacing: -3;
+        font-weight: bold;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        font-family: 'SF Pro Display';
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: -0.3px;
+        text-decoration-line: underline;
+
+    }
+
+    &__link-icon {
+        width: 13.224px;
+        height: 11.586px;
+        flex-shrink: 0;
+    }
+}
