@@ -1,1 +1,24 @@
-@use './variables' as *;
+@use "./variables" as *;
+
+// use case: @include typekit(p2) will inject relevant styles
+@mixin typekit($type) {
+  @if $type == p2 {
+    font-size: 10px;
+    font-weight: normal;
+    letter-spacing: -3;
+  } @else if $type == p3 {
+    font-size: 10px;
+    font-weight: normal;
+    letter-spacing: -3;
+  }
+}
+
+@mixin axial-padding($axis, $top-left, $bottom-right) {
+  @if $axis == x {
+    padding-left: $top-left;
+    padding-right: $bottom-right;
+  } @else if $axis == y {
+    padding-top: $top-left;
+    padding-bottom: $bottom-right;
+  }
+}

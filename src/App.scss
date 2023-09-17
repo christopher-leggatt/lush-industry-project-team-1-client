@@ -1,7 +1,7 @@
 @use './styles/partials/general' as *;
 @use './styles/partials/variables' as *;
-@use './' as *;
-@use './styles/partials/base' as *;
+@use './styles/partials/font-face' as *;
+@use './styles/partials/mixins' as *;
 
 .App {
   text-align: center;
