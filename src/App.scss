@@ -1,0 +1,7 @@
+@use './styles/partials/general' as *;
+@use './styles/partials/variables' as *;
+@use './' as *;
+
+.App {
+  text-align: center;
+}
