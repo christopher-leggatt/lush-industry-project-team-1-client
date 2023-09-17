@@ -1,0 +1,109 @@
+
+
+.App {
+    text-align: center;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    background-color: white;
+    font-family: Helvetica, sans-serif;
+    letter-spacing: -1.5px;
+  }
+  
+  /* Forms */
+  
+  h2 {
+    font-size: 2.2rem;
+    text-align: left;
+    width: 250px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    }
+
+  .auth-form-container, .home-form, .create-form {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  @media screen and (min-width: 600px) {
+    .auth-form-container {
+      padding: 5rem;
+      border-radius: 10px;
+      margin: 0.5rem;
+    }
+  }
+  
+  input {
+    margin: 0.35rem 0;
+    padding: 1rem;
+    border: 1px solid #FFC4F3;
+    background-color: #FFF3FD;
+    border-radius: 10px;
+    color: black;
+    letter-spacing: -0.5px;
+    font-size: 0.95rem;
+  }
+
+  input[name="name"], input[name="email"], input[name="number"] {
+    background-image: url("../../assets/Edit.svg");
+    background-repeat: no-repeat;
+    background-position: right 5% bottom 50%;
+  }
+
+  input[name="pronunciation"] {
+    background-image: url("../../assets/Mic.svg");
+    background-repeat: no-repeat;
+    background-position: right 5% bottom 50%;
+  }
+
+  input[name="pronouns"] {
+    background-image: url("../../assets/Pronouns.svg");
+    background-repeat: no-repeat;
+    background-position: right 5% bottom 50%;
+  }
+
+  input::placeholder{
+    color: black;
+    font-weight: 800;
+  }
+
+  input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+}
+  
+input[type="number"] {
+    -moz-appearance: textfield !important;
+}
+
+  /* Buttons */
+  
+  button {
+    font-size: 0.95rem;
+    margin: 0.35rem 0;
+    background-color: #FFC4F3;
+    padding: 20px;
+    border: 1px solid #FFC4F3;
+    border-radius: 10px;
+    cursor: pointer;
+    color: black;
+    font-weight: 800;
+  }
+
+  button.btn-create {
+    text-transform: uppercase;
+  }
+  
+  .link-btn {
+    border: none;
+    background: none;
+    color: black;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.5rem;
+    text-align: left;
+    padding: 0px;
+  }
