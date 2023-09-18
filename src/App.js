@@ -6,6 +6,7 @@ import { CreateNewProfile } from "./pages/createNewProfile/CreateNewProfile";
 import Navbar from './components/Navbar/Navbar';
 import { Home } from "./pages/Home/Home";
 import ItemDetailPage from './pages/ItemDetailPage/ItemDetailPage';
+import Test from './pages/Test/Test';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path='/item/id' element={<ItemDetailPage />} />
+            <Route path="/test" element={<Test />} />
           </Routes>
         </main>
         <Navbar />

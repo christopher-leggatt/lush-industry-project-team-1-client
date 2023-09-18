@@ -1,31 +1,28 @@
 import "./_Navbar.scss";
 import React from "react";
-import { AppBar, Typography, IconButton } from "@mui/material";
-import {
-  Home,
-  Search,
-  Category,
-  Person,
-  ShoppingCart,
-} from "@mui/icons-material";
-import { useNavigate, useLocation } from "react-router-dom";
+import { AppBar, IconButton } from "@mui/material";
 
+import { useNavigate, useLocation } from "react-router-dom";
+import { ReactComponent as Home } from "../../assets/icons/home_navbar.svg";
+import { ReactComponent as Search } from "../../assets/icons/search_navbar.svg";
+import { ReactComponent as Category } from "../../assets/icons/categories_navbar.svg";
+import { ReactComponent as Profile } from "../../assets/icons/profile_navbar.svg";
+import { ReactComponent as Cart } from "../../assets/icons/cart_navbar.svg";
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
   const navLinks = [
-    { label: "Home", route: "/home", icon: Home },
+    { label: "Home", route: "/", icon: Home },
     { label: "Search", route: "/search", icon: Search },
     { label: "Shop", route: "/shop", icon: Category },
-    { label: "Profile", route: "/profile", icon: Person },
-    { label: "Cart", route: "/cart", icon: ShoppingCart },
+    { label: "Profile", route: "/profile", icon: Profile },
+    { label: "Cart", route: "/cart", icon: Cart },
   ];
 
   return (
     <AppBar
       position="fixed"
-      color="primary"
       className="navbar"
       sx={{
         top: "auto",
@@ -38,6 +35,8 @@ const Navbar = () => {
         alignItems: "flex-start",
         columnGap: "24px",
         paddingTop: "8px",
+        borderTop: "2px solid #999999",
+        backgroundColor: "white",
       }}
     >
       {navLinks.map((link) => (
@@ -54,32 +53,21 @@ const Navbar = () => {
             alignItems: "center",
             justifyContent: "space-between",
             height: "56px",
-            color: location.pathname === link.route ? "black" : "inherit",
-
+            color: location.pathname === link.route ? "#4d4d4d" : "#B9BABB",
           }}
         >
           <link.icon
-            className="navbar__icon"
-            sx={{
-              height: "24px",
-              width: "24px",
-              color: location.pathname === link.route ? "black" : "inherit",
-            }}
+            className={`navbar__icon ${
+              location.pathname === link.route ? "navbar__icon--active" : ""
+            }`}
           />
-          <Typography
-            variant="p"
+          <p
             className={`navbar__label ${
               location.pathname === link.route ? "navbar__label--active" : ""
             }`}
-            sx={{
-              fontSize: "10px",
-              color: "inherit",
-              textDecoration:
-                location.pathname === link.route ? "underline" : "none",
-            }}
           >
             {link.label}
-          </Typography>
+          </p>
         </IconButton>
       ))}
     </AppBar>
