@@ -37,8 +37,10 @@ h2 {
 input {
   margin: 0.35rem 0;
   padding: 1rem;
+
   border: 1px solid #ffc4f3;
   background-color: #fff3fd;
+
   border-radius: 10px;
   color: black;
   min-width: 350px;
@@ -53,14 +55,18 @@ input::placeholder {
 
 button {
   margin: 0.35rem 0;
+
   background-color: #ffc4f3;
   padding: 20px;
   border: 1px solid #ffc4f3;
+
   border-radius: 10px;
   cursor: pointer;
   color: black;
   font-weight: 800;
   text-transform: none;
+
+
 }
 .Search {
   background-image: url("../../assets/Search.svg");
@@ -84,3 +90,4 @@ button {
 .form--style {
   display: flex;
 }
+

@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CreateNewProfile } from "./pages/createNewProfile/CreateNewProfile";
 import Navbar from './components/Navbar/Navbar';
 import { Home } from "./pages/Home/Home";
+import ItemDetailPage from './pages/ItemDetailPage/ItemDetailPage';
 
 function App() {
 
@@ -13,23 +14,24 @@ function App() {
   const toggleForm = (formName) => {
     setCurrentForm(formName);
   }
-  
+
   return (
-    <div className="App"> 
+    <div className="App">
 
-{
-      currentForm === "home" ? <Home onFormSwitch={toggleForm} /> : <CreateNewProfile onFormSwitch={toggleForm} />
-    }
-    
+      {/* {
+        currentForm === "home" ? <Home onFormSwitch={toggleForm} /> : <CreateNewProfile onFormSwitch={toggleForm} />
+      } */}
 
 
-    <BrowserRouter>
+
+      <BrowserRouter>
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path='/item/id' element={<ItemDetailPage />} />
           </Routes>
         </main>
-    <Navbar />    
+        <Navbar />
       </BrowserRouter>
     </div>
   );
