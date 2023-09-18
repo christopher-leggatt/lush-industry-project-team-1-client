@@ -65,13 +65,13 @@ const ItemTile = ({ product, size }) => {
           style={count > 0 ? { justifyContent: "space-between" } : {justifyContent: "center"}}
         >
           {count > 0 && (
-            <span className={`cart-btn__count cart-btn__count${size}`}>
+            <span className={`cart-btn__count cart-btn__count--${size}`}>
               {count}
             </span>
           )}
           <ShoppingCart
             className={`cart-btn__cart-icon cart-btn__cart-icon--${size}`}
-            style={count > 0 ? { paddingRight: "12px" } : {}}
+            style={count > 0 ? { marginRight: "12px" } : {}}
           />
         </button>
       </div>
