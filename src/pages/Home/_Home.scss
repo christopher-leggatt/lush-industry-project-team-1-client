@@ -1,64 +1,93 @@
-
-
 .App {
-    text-align: center;
-    display: flex;
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    background-color: white;
-    font-family: Helvetica, sans-serif;
-  }
-  
-  /* Forms */
-  
-  h2 {
+  text-align: center;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  background-color: white;
+  font-family: Helvetica, sans-serif;
+}
+
+/* Forms */
+
+h2 {
   font-size: 2.2rem;
   text-align: left;
   width: 250px;
   margin-top: 5px;
   margin-bottom: 15px;
-  }
-  
-  .auth-form-container, .home-form, .create-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  @media screen and (min-width: 600px) {
-    .auth-form-container {
-      padding: 5rem;
-      border-radius: 10px;
-      margin: 0.5rem;
-    }
-  }
-  
-  input {
-    margin: 0.35rem 0;
-    padding: 1rem;
-    border: 1px solid #FFC4F3;
-    background-color: #FFF3FD;
+}
+
+.auth-form-container,
+.home-form,
+.create-form {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 600px) {
+  .auth-form-container {
+    padding: 5rem;
     border-radius: 10px;
-    color: black;
-    min-width: 350px;
+    margin: 0.5rem;
   }
-  
-  input::placeholder{
-    color: black;
-    font-weight: 800;
-  }
-  
-  /* Buttons */
-  
-  button {
-    margin: 0.35rem 0;
-    background-color: #FFC4F3;
-    padding: 20px;
-    border: 1px solid #FFC4F3;
-    border-radius: 10px;
-    cursor: pointer;
-    color: black;
-    font-weight: 800;
-    text-transform: none;
-  }
+}
+
+input {
+  margin: 0.35rem 0;
+  padding: 1rem;
+
+  border: 1px solid #ffc4f3;
+  background-color: #fff3fd;
+
+  border-radius: 10px;
+  color: black;
+  min-width: 350px;
+}
+
+input::placeholder {
+  color: black;
+  font-weight: 800;
+}
+
+/* Buttons */
+
+button {
+  margin: 0.35rem 0;
+
+  background-color: #ffc4f3;
+  padding: 20px;
+  border: 1px solid #ffc4f3;
+
+  border-radius: 10px;
+  cursor: pointer;
+  color: black;
+  font-weight: 800;
+  text-transform: none;
+
+
+}
+.Search {
+  background-image: url("../../assets/Search.svg");
+  background-repeat: no-repeat;
+  background-position: right 4% bottom 50%;
+}
+.NewProfile {
+  background-image: url("../../assets/AddIcon.svg");
+  background-repeat: no-repeat;
+  background-position: right 4% bottom 50%;
+  margin-right: 1rem;
+  padding: 3rem 3rem 3rem 01rem;
+}
+
+.Guest {
+  background-image: url("../../assets/GuestContinue.svg");
+  background-repeat: no-repeat;
+  background-position: right 4% bottom 50%;
+  padding: 3rem 3rem 3rem 01rem;
+}
+.form--style {
+  display: flex;
+}
+

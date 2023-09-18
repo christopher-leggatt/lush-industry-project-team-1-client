@@ -1,0 +1,317 @@
+.item-section {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background: #FAFAFA;
+    animation: moveInRight .5s ease-in-out;
+}
+
+.slide {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100vw;
+
+    &__wrapper {
+        position: relative;
+        width: 100%;
+        background-color: #fff;
+    }
+
+    &__header {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        width: 100vw;
+        top: 2rem;
+        z-index: 100;
+    }
+
+    &__button {}
+
+    &__button-icon {
+        margin: 0;
+
+        &--back {
+            margin-left: 1rem;
+            width: 24px;
+            height: 24px;
+        }
+
+        &--accessibility {
+            margin-right: 1rem;
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    &__image-container {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-y: hidden;
+        overflow-x: auto;
+        height: 300px;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__image {
+        flex: 0 0 auto;
+        height: 100%;
+        width: auto;
+        margin: 0;
+    }
+
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    margin-top: 300px;
+    justify-content: center;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        padding: 24px 1rem 0;
+
+    }
+
+    &__title-container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 24px;
+        width: auto;
+    }
+
+    &__title {
+        font-family: 'SF Pro Display';
+        font-size: 24px;
+        letter-spacing: -3;
+        font-weight: bold;
+        margin: 0;
+        width: auto;
+
+        &--price {}
+    }
+
+    &__stock-container {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    &__stock-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        gap: 11px;
+    }
+
+    &__icon {
+        width: 18px;
+        height: 18px;
+        margin: 0;
+
+        &--stock {
+            flex-shrink: 0;
+        }
+    }
+
+    &__stock {
+        font-family: 'SF Pro Display';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+
+    &__detail {
+        font-family: 'SF Pro Display';
+        font-size: 18px;
+        letter-spacing: 0;
+        font-weight: medium;
+        text-align: left;
+        padding: 0 1rem;
+        margin-bottom: 24px;
+        display: flex;
+        flex-shrink: 0;
+    }
+
+
+    &__button-container {
+        padding: 0 1rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    &__button {
+        background-color: #1d1d1d;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        padding: 10px 10px 10px 38px;
+        width: 100%;
+        border-radius: 12px;
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: -0.54px;
+        border: none;
+        margin: 0;
+
+
+        &--add-to-cart {}
+    }
+
+    &__button-icon {
+        width: 24px;
+        height: 24px;
+        margin: 0;
+    }
+
+}
+
+.suggested {
+    padding: 24px 1rem;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__heading {
+        font-family: 'SF Pro Display';
+        font-size: 24px;
+        letter-spacing: -3;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        font-family: 'SF Pro Display';
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: -0.3px;
+        text-decoration-line: underline;
+        flex-shrink: 0;
+    }
+
+    &__link-icon {
+        width: 13.224px;
+        height: 11.586px;
+        flex-shrink: 0;
+    }
+}
+
+.counter {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+
+    &__button {
+        border-radius: 12px;
+        border: 2px solid #000;
+        padding: 10px;
+        width: 33%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+
+        &--decrease {
+            background-color: #fff;
+            color: #000;
+        }
+
+        &--increase {
+            background-color: #000;
+            color: #fff;
+        }
+
+        &--inactive {
+            background: #7C7C7C;
+            border: 2px solid #7c7c7c;
+        }
+    }
+
+    &__text-container {
+        background-color: #FFBAF0;
+        color: #000;
+        padding: 12px;
+        border-radius: 12px;
+        border: none;
+        width: 33%;
+    }
+
+    &__text {
+        font-family: 'SF Pro Display';
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: -0.54px;
+    }
+
+    &__icon {
+        width: 24px;
+        height: 24px;
+        margin: 0;
+    }
+}
+
+.total-popup {
+    position: fixed;
+    bottom: 106px;
+    right: 16px;
+    padding: 10px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ED81DD;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    flex-shrink: 0;
+    border-radius: 12px;
+    animation: moveInRight .3s ease-in-out;
+
+    &__text {
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: -0.54px;
+    }
+}
+
+@keyframes moveInRight {
+    from {
+        transform: translateX(500px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
