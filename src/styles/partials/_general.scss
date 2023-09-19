@@ -2,15 +2,17 @@
 @use "./variables" as *;
 @use "./font-face" as *;
 
+a,
+button {
+  all: unset;
+  cursor: pointer;
+}
+
 a {
   text-decoration: none;
   color: inherit;
 }
 
-a,
-button {
-  cursor: pointer;
-}
 
 html {
   box-sizing: border-box;

@@ -7,6 +7,7 @@ import Navbar from './components/Navbar/Navbar';
 import { Home } from "./pages/Home/Home";
 import ItemDetailPage from './pages/ItemDetailPage/ItemDetailPage';
 import Test from './pages/Test/Test';
+import Cart from './pages/Cart/Cart';
 
 function App() {
 
@@ -31,6 +32,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path='/item/id' element={<ItemDetailPage />} />
             <Route path="/test" element={<Test />} />
+            <Route path="/cart" element={<Cart />} />
+
           </Routes>
         </main>
         <Navbar />
