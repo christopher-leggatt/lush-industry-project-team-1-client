@@ -5,6 +5,8 @@
     flex-direction: column;
     background: #FAFAFA;
     animation: moveInRight .5s ease-in-out;
+    padding-bottom: 82px;
+    overflow-y: auto;
 }
 
 .slide {
@@ -223,6 +225,25 @@
     &__link-icon {
         width: 13.224px;
         height: 11.586px;
+        flex-shrink: 0;
+    }
+
+    &__list {
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 1rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__item {
         flex-shrink: 0;
     }
 }
