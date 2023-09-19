@@ -14,6 +14,7 @@ import plusIcon from '../../assets/icons/plus.svg';
 import miusIcon from '../../assets/icons/minus.svg';
 import planIcon from '../../assets/icons/plane.svg';
 import { useEffect, useRef, useState } from 'react';
+import ItemTile from '../../components/ItemTile/ItemTile';
 
 
 const ItemDetailPage = () => {
@@ -21,7 +22,7 @@ const ItemDetailPage = () => {
     const increaseButtonRef = useRef();
     const plusIconRef = useRef();
 
-    const shopStock = 5;
+    const shopStock = 2;
     const onlineStock = 4;
     let stockType = ((shopStock === 0) ? (onlineStock) : (shopStock))
     const [counterActive, setCounterActive] = useState(false);
@@ -34,6 +35,13 @@ const ItemDetailPage = () => {
             setButtonText('Ship To Home')
         }
     }, [shopStock])
+
+    const product = {
+        price: 15,
+        name: "Test",
+        image_url: "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png",
+        id: 1,
+    };
 
     return (
         <section className="item-section">
@@ -129,7 +137,25 @@ const ItemDetailPage = () => {
                 <div className="suggested__header">
                     <h2 className="suggested__heading">Suggested Item</h2>
                     <Link className="suggested__link">View All<img src={chevronBack} alt="" className="suggested__link-icon" /></Link>
+
                 </div>
+                <div className="suggested__list">
+                    <div className="suggested__item">
+                        <ItemTile product={product} size='small' />
+                    </div>
+                    <div className="suggested__item">
+                        <ItemTile product={product} size='small' />
+                    </div>
+                    <div className="suggested__item">
+                        <ItemTile product={product} size='small' />
+                    </div>
+                    <div className="suggested__item">
+                        <ItemTile product={product} size='small' />
+                    </div>
+
+
+                </div>
+
             </div>
             {counter === 0 ? (<></>) : (
                 <div className="total-popup">
