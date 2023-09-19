@@ -16,17 +16,17 @@
     font-weight: 700;
     letter-spacing: -3;
   } @else if type == h2 {
-    font-size: 24px !important;
-    font-weight: 700 !important;
-    letter-spacing: -3 !important;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -3;
   } @else if type == h3 {
-    font-size: 18px !important;
-    font-weight: 700 !important;
-    letter-spacing: -3 !important;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -3;
   } @else if type == h4 {
-    font-size: 14px !important;
-    font-weight: 700 !important;
-    letter-spacing: -3 !important;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -3;
   } @else if type == p {
     font-size: 18px;
     font-weight: 500;
