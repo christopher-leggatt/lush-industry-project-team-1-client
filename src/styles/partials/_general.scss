@@ -2,15 +2,17 @@
 @use "./variables" as *;
 @use "./font-face" as *;
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
 a,
 button {
   all: unset;
   cursor: pointer;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 
 html {
   box-sizing: border-box;
@@ -30,7 +32,13 @@ textarea,
 *,
 *::placeholder {
   font-family: "SF Pro Display", sans-serif;
-  letter-spacing: -3;
+  letter-spacing: -0.03em;
+}
+
+body {
+  width: 390px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 li {

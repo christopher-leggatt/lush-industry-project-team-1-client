@@ -3,13 +3,34 @@
 // use case: @include typekit(p2) will inject relevant styles
 @mixin typekit($type) {
   @if $type == p2 {
-    font-size: 10px;
+    font-size: 10px !important;
     font-weight: normal;
-    letter-spacing: -3;
+    letter-spacing: $lush-letter-spacing;
   } @else if $type == p3 {
     font-size: 10px;
     font-weight: normal;
-    letter-spacing: -3;
+    letter-spacing: $lush-letter-spacing;
+    text-decoration: underline;
+  } @else if type == h1 {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: $lush-letter-spacing;
+  } @else if type == h2 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: $lush-letter-spacing;
+  } @else if type == h3 {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: $lush-letter-spacing;
+  } @else if type == h4 {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: $lush-letter-spacing;
+  } @else if type == p {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0;
   }
 }
 
