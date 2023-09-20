@@ -32,7 +32,13 @@ textarea,
 *,
 *::placeholder {
   font-family: "SF Pro Display", sans-serif;
-  letter-spacing: -3;
+  letter-spacing: -0.03em;
+}
+
+body {
+  width: 390px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 li {

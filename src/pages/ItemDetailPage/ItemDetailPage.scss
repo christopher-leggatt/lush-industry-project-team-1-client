@@ -1,3 +1,5 @@
+@use '../../styles/partials/variables' as *;
+
 .item-section {
     height: 100vh;
     width: 100vw;
@@ -98,7 +100,7 @@
     &__title {
         font-family: 'SF Pro Display';
         font-size: 24px;
-        letter-spacing: -3;
+        letter-spacing: $lush-letter-spacing;
         font-weight: bold;
         margin: 0;
         width: auto;
@@ -202,7 +204,7 @@
     &__heading {
         font-family: 'SF Pro Display';
         font-size: 24px;
-        letter-spacing: -3;
+        letter-spacing: $lush-letter-spacing;
         font-weight: bold;
         margin: 0;
     }

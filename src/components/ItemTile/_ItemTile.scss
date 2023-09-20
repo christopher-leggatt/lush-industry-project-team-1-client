@@ -2,7 +2,7 @@
 @use "../../styles/partials/variables" as *;
 
 .item-tile {
-  border: 2px solid black;
+  // border: 2px solid black;
   border-radius: 12px;
   color: black;
   display: flex;
@@ -10,6 +10,7 @@
   position: relative;
   background-color: #e9ecf2;
   overflow: hidden;
+  box-shadow: $drop-shadow;
 
   &--small {
     width: 136px;
@@ -18,7 +19,7 @@
     @include typekit(h4);
     font-size: 14px !important;
     font-weight: 700 !important;
-    letter-spacing: -3 !important;
+    letter-spacing: $lush-letter-spacing !important;
   }
 
   &--large {
@@ -28,7 +29,7 @@
     @include typekit(h3);
     font-size: 18px !important;
     font-weight: 700 !important;
-    letter-spacing: -3 !important;
+    letter-spacing: $lush-letter-spacing !important;
   }
 
   &__total-cart-wrapper {
@@ -58,14 +59,14 @@
       @include typekit(h4);
       font-size: 14px !important;
       font-weight: 700 !important;
-      letter-spacing: -3 !important;
+      letter-spacing: $lush-letter-spacing !important;
     }
 
     &--large {
       @include typekit(h3);
       font-size: 18px !important;
       font-weight: 700 !important;
-      letter-spacing: -3 !important;
+      letter-spacing: $lush-letter-spacing !important;
     }
   }
 
@@ -84,7 +85,7 @@
       @include typekit(h4);
       font-size: 14px !important;
       font-weight: 700 !important;
-      letter-spacing: -3 !important;
+      letter-spacing: $lush-letter-spacing !important;
       height: 38px;
       max-height: 38px;
       width: 38px;
@@ -122,14 +123,14 @@
         @include typekit(h4);
         font-size: 14px !important;
         font-weight: 700 !important;
-        letter-spacing: -3 !important;
+        letter-spacing: $lush-letter-spacing !important;
       }
 
       &--large {
         @include typekit(h3);
         font-size: 18px !important;
         font-weight: 700 !important;
-        letter-spacing: -3 !important;
+        letter-spacing: $lush-letter-spacing !important;
       }
     }
 
@@ -176,13 +177,13 @@
     &--small {
       height: 66px;
       width: 132px;
-      top: 134px;
+      top: 138px;
     }
 
     &--large {
       height: 82.5px;
       width: 167px;
-      top: 172px;
+      top: 176px;
     }
   }
 
@@ -203,7 +204,7 @@
       @include typekit(h4);
       font-size: 14px !important;
       font-weight: 700 !important;
-      letter-spacing: -3 !important;
+      letter-spacing: $lush-letter-spacing !important;
       width: 132px;
       @include axial-padding(y, 4px, 0);
     }
@@ -212,7 +213,7 @@
       @include typekit(h3);
       font-size: 18px !important;
       font-weight: 700 !important;
-      letter-spacing: -3 !important;
+      letter-spacing: $lush-letter-spacing !important;
 
       @include axial-padding(y, 8px, 0);
       width: 167px;

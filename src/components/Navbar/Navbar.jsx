@@ -27,8 +27,10 @@ const Navbar = () => {
       sx={{
         top: "auto",
         bottom: 0,
+        left: "50%",
+        transform: "translateX(-50%)",
         height: "82px",
-        width: "100%",
+        width: "390px",
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",

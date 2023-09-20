@@ -1,0 +1,19 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.chip {
+    display: inline-block;
+    height: 32px;
+    padding: 10px;
+    border-radius: 100px;
+    border: 1px solid #bfbfbf;
+    margin-right: 10px;
+    white-space: nowrap;
+    font-family: 'SF Pro Display';
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: -0.03em;
+    color: black;
+    vertical-align: middle;
+  }
