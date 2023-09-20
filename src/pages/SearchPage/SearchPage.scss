@@ -1,0 +1,92 @@
+.search {
+    background: #FAFAFA;
+    height: 100vh;
+    width: 100vw;
+}
+
+
+.search-form {
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &__input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 12px;
+        border: 2px solid #FFC4F3;
+        background: rgba(255, 196, 243, 0.20);
+        outline: none;
+        font-family: 'SF Pro Display';
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: -0.54px;
+        text-align: center;
+
+
+        &::placeholder {}
+    }
+
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 16px 32px;
+        gap: 12px;
+        border-radius: 12px;
+        background: #929292;
+        border: none;
+        font-family: 'SF Pro Display';
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: -0.54px;
+        color: #ffffff80;
+
+
+
+        &--icon {
+            width: 16px;
+            height: 16px;
+        }
+    }
+}
+
+.loading {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../assets/images/LOADING\ SCREEN\ LARGE.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 100000;
+
+
+    &__image {
+        transform: scale(2);
+        animation: largeToSmall 2s ease-in-out;
+    }
+}
+
+@keyframes largeToSmall {
+    from {
+        transform: scale(7);
+    }
+
+    to {
+        transform: scale(2);
+    }
+
+}
