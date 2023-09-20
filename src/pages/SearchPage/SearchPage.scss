@@ -61,3 +61,32 @@
         }
     }
 }
+
+.loading {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../assets/images/LOADING\ SCREEN\ LARGE.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 100000;
+
+
+    &__image {
+        transform: scale(2);
+        animation: largeToSmall 2s ease-in-out;
+    }
+}
+
+@keyframes largeToSmall {
+    from {
+        transform: scale(7);
+    }
+
+    to {
+        transform: scale(2);
+    }
+
+}
