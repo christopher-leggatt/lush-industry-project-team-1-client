@@ -1,30 +1,29 @@
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/variables' as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
 .navbar {
+    
+  &__icon {
+    height: 24px;
+    width: 24px;
 
-    &__icon {
-        height: 24px;
-        width: 24px;
-
-        path {
-            fill: #B9BABB;
-        }
-
-        &--active {
-
-            path {
-                fill: #4d4d4d;
-            }
-        }
+    path {
+      fill: #b9babb;
     }
 
-    &__label {
-        @include typekit(p2);
-        color: inherit;
-
-        &--active {
-            @include typekit(p3);
-        }
+    &--active {
+      path {
+        fill: #4d4d4d;
+      }
     }
+  }
+
+  &__label {
+    @include typekit(p2);
+    color: inherit;
+
+    &--active {
+      @include typekit(p3);
+    }
+  }
 }

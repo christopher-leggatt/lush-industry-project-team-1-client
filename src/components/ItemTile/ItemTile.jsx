@@ -1,5 +1,5 @@
 import "./_ItemTile.scss";
-import React from "react";
+import React,{ useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { formatPrice } from "../../utils";
 import { useNavigate } from "react-router-dom";
@@ -8,22 +8,21 @@ import {
   increaseCount,
   removeFromCart,
   addToCart,
-} from "../../state";
+} from "../../state/cartSlice";
 import { useState } from "react";
 import { ReactComponent as Add } from "../../assets/icons/increase_qty.svg";
 import { ReactComponent as Remove } from "../../assets/icons/decrease_qty.svg";
 import { ReactComponent as ShoppingCart } from "../../assets/icons/cart_small.svg";
-import { useEffect, useRef } from 'react';
 
 const ItemTile = ({ product, size }) => {
-  const { price, name, image_url, id } = product;
+  const { product_price, product_name, product_image, id } = product;
   const [count, setCount] = useState(0);
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.state.cart);
+  const cart = useSelector((state) => state.cart);
   const totalPrice = (price) => {
     return count * price;
   };
-  const formattedTotalPrice = formatPrice(totalPrice(price));
+  const formattedTotalPrice = formatPrice(totalPrice(product_price));
   const navigate = useNavigate();
   const cartBtnRef = useRef(null);  
 
@@ -78,16 +77,16 @@ const ItemTile = ({ product, size }) => {
 
       <img
         className={`item-tile__product-image item-tile__product-image--${size}`}
-        alt={name}
-        src={image_url}
-        onClick={() => navigate(`/${id}`)}
+        alt={product_name}
+        src={product_image}
+        onClick={() => navigate(`/product/${id}`)}
       />
 
       <div
         className={`item-tile__counter-wrapper item-tile__counter-wrapper--${size}`}
       >
         <p className={`item-tile__item-name item-tile__item-name--${size}`}>
-          {name}
+          {product_name}
         </p>
         <div
           className={`item-tile__btns-wrapper item-tile__btns-wrapper--${size}`}

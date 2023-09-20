@@ -11,6 +11,7 @@ import Cart from './pages/Cart/Cart';
 import SearchPage from './pages/SearchPage/SearchPage';
 import ProfileList from './pages/ProfileList/ProfileList';
 import { useState } from 'react';
+import CategorizedItems from './pages/CategorizedItems/CategorizedItems';
 
 function App() {
 
@@ -34,7 +35,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path='/item/id' element={<ItemDetailPage />} />
+            <Route path='/item/:id' element={<ItemDetailPage />} />
             <Route path="/test" element={<Test />} />
             <Route path="/cart" element={<Cart />} />
             <Route
@@ -45,7 +46,7 @@ function App() {
             <Route
               path='/profile-list'
               element={<ProfileList userData={userData} />}
-
+            <Route path="/category/:category" element={<CategorizedItems />} />
             />
           </Routes>
         </main>
