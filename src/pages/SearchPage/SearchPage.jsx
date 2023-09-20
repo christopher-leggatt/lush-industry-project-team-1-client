@@ -1,28 +1,40 @@
 import './SearchPage.scss';
-import headerLogo from '../../assets/logo/Lush-black.jpg';
-import backIcon from '../../assets/icons/back.svg';
-import wheelChairIcon from '../../assets/icons/wheelchair.svg';
-import { Link } from 'react-router-dom';
 import { useRef, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import BackHeader from '../../components/BackHeader/BackHeader';
 
 
-const SearchPage = () => {
+
+const SearchPage = ({ setUserData }) => {
+    const API_URL = process.env.REACT_APP_BACKEND_URL;
     const phoneInputRef = useRef();
     const submitButtonRef = useRef();
     const submitButtonIconRef = useRef();
-    const [buttonDisabled, setButtonDisabled] = useState(true)
+    const [buttonDisabled, setButtonDisabled] = useState(true);
+
+
+    const navigate = useNavigate();
+
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+
+        axios.get(`${API_URL}/user/${phoneInputRef.current.value}`).then((response) => {
+            setUserData(response.data[0]);
+        }).then(() => {
+            setTimeout(() => {
+                navigate('/profile-list');
+            }, 2500)
+        })
+
+        event.target.reset();
+
+    }
     return (
         <div className="search">
-            <header className="header-back">
-                <img src={headerLogo} alt="" className="header-back__logo" />
-                <nav className="header-back__navbar">
-                    <Link className="header-back__link header-back__link--back"><img src={backIcon} alt="" className="header-back__icon header-back__icon--back" /></Link>
-                    <Link className="header-back__link header-back__link--accessibility"><img src={wheelChairIcon} alt="" className="header-back__icon header-back__icon--accessibility" /></Link>
-                </nav>
-            </header>
 
-            <form className="search-form">
+            <BackHeader backPage='/' />
+            <form className="search-form" onSubmit={handleFormSubmit}>
                 <input onChange={(e) => {
                     if (e.target.value.length === 10) {
                         submitButtonIconRef.current.style.fillOpacity = '1';
