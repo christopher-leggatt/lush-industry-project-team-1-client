@@ -1,6 +1,7 @@
 import "./_Home.scss";
 
 export const Home = (props) => {
+  const [currentForm, setCurrentForm] = useState("home");
   return (
     <div className="auth-form-container">
       <h2>Select Shopper Profile Type</h2>
