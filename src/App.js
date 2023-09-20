@@ -23,12 +23,12 @@ function App() {
     setCurrentForm(formName);
   }
   return (
-    <div className="App">
+    <div className="App"> 
 
-      {/* {
-        currentForm === "home" ? <Home onFormSwitch={toggleForm} /> : <CreateNewProfile onFormSwitch={toggleForm} />
-      } */}
-
+{
+      currentForm === "home" ? <Home onFormSwitch={toggleForm} /> : <CreateNewProfile onFormSwitch={toggleForm} />
+    }
+    
 
 
       <BrowserRouter>
