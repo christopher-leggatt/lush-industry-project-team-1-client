@@ -14,7 +14,7 @@ import { useState } from "react";
 import CategorizedItems from "./pages/CategorizedItems/CategorizedItems";
 import CategoryFeed from "./pages/CategoryFeed/CategoryFeed";
 import AccessibilityPage from "./pages/AccessibilityPage/AccessiblityPage";
-
+import ExistingProfile from "./pages/ExistingProfile/ExistingProfile";
 
 function App() {
   const [userData, setUserData] = useState({});
@@ -47,6 +47,7 @@ function App() {
         path='/profile-list'
         element={<ProfileList userData={userData} />}
       />
+      <Route path="/ExistingProfile" element={<ExistingProfile />} />
       {/* Moved the /category/:category route outside of the /profile-list route */}
       <Route path="/categoryfeed" element={<CategoryFeed />} />
       <Route path="/category/:category" element={<CategorizedItems />} />

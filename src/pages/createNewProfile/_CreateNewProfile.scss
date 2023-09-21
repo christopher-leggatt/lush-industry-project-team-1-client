@@ -26,10 +26,10 @@ h2 {
 
 h3 {
   text-align: left;
-  font-size: 1.5rem;
+  font-size: 1.55rem;
   font-weight: 500;
   padding-left: 2px;
-  padding-top: 20px;
+  padding-top: 25px;
   padding-bottom: 10px;
 }
 
@@ -109,7 +109,21 @@ button {
 }
 
 button.btn-create {
-  text-transform: uppercase;
+  background-color: black;
+  color: white;
+  border: 0px;
+  font-size: 1.25rem;
+}
+
+a button.btn-create, a button.btn-cancel-create {
+  width: 320px;
+}
+
+button.btn-cancel-create {
+  background-color: #FF7272;
+  color: black;
+  border: 0px;
+  font-size: 1.25rem;
 }
 
 a {
@@ -119,4 +133,11 @@ a {
 img.back-button {
   text-align: left;
   width: 11px;
+}
+
+.__back-accessibility-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
