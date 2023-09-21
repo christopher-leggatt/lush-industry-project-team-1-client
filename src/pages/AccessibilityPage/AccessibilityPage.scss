@@ -1,78 +1,79 @@
 .accessibilityPage {
-    color: #096888;
-    font-family: SF Pro Display;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    //header
-    &__header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 20px
-    };
-    //section wrappers
-    &__main{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    //all text
+  color: #096888;
+  font-family: SF Pro Display;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding-bottom: 6.25rem;
+  //header
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.25rem;
+  }
+  //section wrappers
+  &__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  //all text
   h1,
   h2,
   p {
     color: #096888;
     font-family: SF Pro Display;
-    font-size: 12px;
+    font-size: 0.75rem;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-  };
-  //Subheader
-  h2{
-    margin-top: 16px;
   }
-  //individual list item 
-  &__list-item{
+  //Subheader
+  h2 {
+    margin-top: 1rem;
+  }
+  //individual list item
+  &__list-item {
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    border-bottom:1px solid #b9babb ;
-    padding-bottom: 10px;
-    padding-top: 10px;
+    border-bottom: 0.0625rem solid #b9babb;
+    padding-bottom: 0.625rem;
+    padding-top: 0.625rem;
   }
   //all icons
   &__icon {
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
     &-box {
-      width: 48px;
-      height: 48px;
+      width: 3rem;
+      height: 3rem;
     }
   }
   //container nav adjustment
   //wrapper
- &__container-nav{
+  &__container-nav {
     display: flex;
- }
- //list items
+  }
+  //list items
   &__container-adj {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 124px;
-    height: 117px;
+    width: 7.75rem;
+    height: 7.3125rem;
     flex-shrink: 0;
-    border: 1px solid #b9babb;
-    margin-bottom: 16px;
-    :hover{
-        opacity: 0.5;
+    border: 0.0625rem solid #b9babb;
+    margin-bottom: 1rem;
+    :hover {
+      opacity: 0.5;
     }
   }
-  &__div{
-    padding-right: 16px;
+  &__div {
+    padding-right: 1rem;
   }
 }
