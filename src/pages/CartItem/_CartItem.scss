@@ -1,0 +1,90 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.cart-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #7c7c7c;
+  @include axial-padding(y, 12px, 12px);
+  overflow: visible;
+
+  &__name-price-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__item-name,
+  &__item-price,
+  &__item-counter {
+    font-size: 24px;
+    font-weight: 600;
+    color: black;
+    margin: 0;
+  }
+
+  &__item-counter-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $lush-secondary;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+  }
+
+  &__cart-item-card {
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    box-shadow: $drop-shadow;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  &__btns-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-bottom: 12px;
+  }
+
+  &__decrease-btn,
+  &__increase-btn {
+    all: unset;
+    width: 42px;
+    height: 24px;
+    border-radius: 6px;
+    border: 1px solid black;
+    cursor: pointer;
+
+  }
+
+  &__decrease-btn {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__increase-btn {
+    background-color: black;
+
+    &--max {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-color: rgba(0, 0, 0, 0.5);
+      cursor: not-allowed;
+
+      .increase-btn__increase-icon {
+        opacity: 0.5;
+      }
+    }
+  }
+}

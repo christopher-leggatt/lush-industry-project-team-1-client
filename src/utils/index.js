@@ -1,9 +1,9 @@
-export const formatPrice = (price) => {
+export const formatPrice = (price, cents = false) => {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
+    minimumFractionDigits: cents ? 2 : 0,
+    maximumFractionDigits: cents ? 2 : 0,
   }).format(price);
 };
 
