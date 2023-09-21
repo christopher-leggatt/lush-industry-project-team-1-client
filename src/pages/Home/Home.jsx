@@ -1,6 +1,6 @@
 import "./_Home.scss";
-import { useState } from "react";
-import { CreateNewProfile } from "../createNewProfile/CreateNewProfile.jsx";
+import { Link } from 'react-router-dom';
+
 
 export const Home = (props) => {
 
@@ -12,12 +12,11 @@ export const Home = (props) => {
         Search For Lush Member
       </button>
       <div className="form--style">
-        <button
-          className="NewProfile"
-          onClick={() => props.onFormSwitch("register")}
-        >
-          Create A New User Profile
-        </button>
+        <Link to='./CreateNewProfile'>
+          <button className="NewProfile" >
+            Create A New User Profile
+          </button>
+        </Link>
         <button className="Guest" type="submit">
           Continue Shopping As A Guest
         </button>

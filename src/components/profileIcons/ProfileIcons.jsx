@@ -24,9 +24,11 @@ function ProfileIcons() {
   };
 
   return (
-    <div>
-      <p>Click an image to highlight:</p>
-      <div className="image-container">
+    
+      
+      <div className="profile-container">
+      <p>Select A Profile Icon</p>
+      <div className="image-block">
         {images.map((image, index) => (
           <img
             key={index}
@@ -36,8 +38,9 @@ function ProfileIcons() {
             onClick={() => handleImageClick(index)}
           />
         ))}
+        </div>
       </div>
-    </div>
+   
   );
 }
 
