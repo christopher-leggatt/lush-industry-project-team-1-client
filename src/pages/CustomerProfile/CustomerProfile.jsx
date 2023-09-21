@@ -4,8 +4,59 @@ import backIcon from '../../assets/icons/back.svg';
 import wheelChairIcon from '../../assets/icons/wheelchair.svg';
 import { Link } from 'react-router-dom';
 import profileImage from '../../assets/ProfileImage2.svg';
+import chevronBack from '../../assets/icons/chevron-back.svg';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import ItemTile from '../../components/ItemTile/ItemTile';
+const CustomerProfile = ({ userData }) => {
+    const API_URL = process.env.REACT_APP_BACKEND_URL;
+    const [userPurchases, setUserPurchases] = useState([]);
+    let [totalSpend, setTotalSpend] = useState(0);
 
-const CustomerProfile = () => {
+    useEffect(() => {
+        axios.get(`${API_URL}/product/user/${userData.id}`)
+            .then((response) => {
+                setUserPurchases(response.data);
+            })
+            .catch((error) => {
+                console.error('Error fetching user purchases:', error);
+            });
+    }, [API_URL, userData.id]);
+
+    useEffect(() => {
+        let newTotalSpend = 0;
+        userPurchases.forEach((transaction) => {
+            newTotalSpend += Number(transaction.product_price);
+        });
+        setTotalSpend(newTotalSpend);
+    }, [userPurchases]);
+
+
+    const customerPeriod = (dateInput) => {
+        let currentDate = new Date();
+        let currentDay = currentDate.getDate();
+        let currentMonth = currentDate.getMonth() + 1;
+        let currentYear = currentDate.getFullYear();
+
+
+        let timeStamp = new Date(dateInput);
+        let day = timeStamp.getDate();
+        let month = timeStamp.getMonth() + 1;
+        let year = timeStamp.getFullYear();
+
+        if (year === currentYear && month === currentMonth && day === currentDay) {
+            return 'New';
+        } else if (year === currentYear && month === currentMonth) {
+            return `${currentDay - day}+ Days`
+        } else if (year === currentYear) {
+            return `${currentMonth - month}+ Months`
+        } else {
+            return `${currentYear - year}+ Years`
+        }
+
+    }
+
+
     return (
         <div className="customer-profile">
             <div className="customer-profile__header-container">
@@ -14,11 +65,11 @@ const CustomerProfile = () => {
                     <div className="header-back__navbar">
                         <div className="customer-profile__detail">
                             <div className="customer-profile__name-container">
-                                <p className="customer-profile__name">Ayeesha</p>
-                                <p className="customer-profile__pronoun">(she/her)</p>
+                                <p className="customer-profile__name">{userData.user_name}</p>
+                                <p className="customer-profile__pronoun">{`(${userData.user_pronouns})`}</p>
                             </div>
                             <div className="customer-profile__pronunciation-container">
-                                <p className="customer-profile__pronunciation">ai·ee·shuh</p>
+                                <p className="customer-profile__pronunciation">{userData.name_pronunciation}</p>
                                 <div className="customer-profile__icon-container">
                                     <svg className='customer-profile__icon' xmlns="http://www.w3.org/2000/svg" width="12" height="18" viewBox="0 0 12 18" fill="none">
                                         <path d="M11.5926 3.69445C11.7597 3.83452 11.8516 4.01178 11.8516 4.19523V13.8031C11.8516 13.9509 11.792 14.0956 11.6797 14.2202C11.5674 14.3448 11.4071 14.444 11.2178 14.5062C11.0285 14.5683 10.818 14.5908 10.6113 14.571C10.4045 14.5512 10.21 14.4899 10.0508 14.3944L5.70469 11.7876H2.44531C2.18677 11.7876 1.93076 11.7515 1.6919 11.6814C1.45304 11.6113 1.23601 11.5086 1.0532 11.3791C0.870381 11.2496 0.725364 11.0959 0.626425 10.9267C0.527486 10.7575 0.476563 10.5762 0.476562 10.3931V7.60404C0.476562 7.23419 0.683984 6.8795 1.0532 6.61797C1.42241 6.35645 1.92317 6.20953 2.44531 6.20953H5.70469L10.0517 3.60396C10.2731 3.47138 10.5598 3.4065 10.8488 3.42359C11.1377 3.44067 11.4052 3.5377 11.5926 3.69445Z" fill="#FAFAFA" />
@@ -35,17 +86,50 @@ const CustomerProfile = () => {
                 <div className="customer-profile__card-container">
                     <div className="customer-profile__card">
                         <p className="customer-profile__card-title">Customer For</p>
-                        <p className="customer-profile__card-info">3+ Years</p>
+                        <p className="customer-profile__card-info">{customerPeriod(userData.created_at)}</p>
                     </div>
                     <div className="customer-profile__card">
                         <p className="customer-profile__card-title">Total Orders</p>
-                        <p className="customer-profile__card-info">15</p>
+                        <p className="customer-profile__card-info">{userPurchases.length}</p>
                     </div>
                     <div className="customer-profile__card">
                         <p className="customer-profile__card-title">Total Spend</p>
-                        <p className="customer-profile__card-info">$367.84</p>
+                        <p className="customer-profile__card-info">{`$${totalSpend}`}</p>
                     </div>
                 </div>
+            </div>
+            <div className="suggested">
+                <div className="suggested__header">
+                    <h2 className="suggested__heading">Recently Purchased</h2>
+                    <Link className="suggested__link">View All<img src={chevronBack} alt="" className="suggested__link-icon" /></Link>
+
+                </div>
+                <div className="suggested__list">
+                    {userPurchases.map(purchase => {
+                        return (
+                            <ItemTile product={{
+                                price: Number(purchase.product_price),
+                                name: purchase.product_name,
+                                image_url: "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png",
+                                id: purchase.id,
+                            }} size='small' />
+                        )
+                    })}
+
+                </div>
+
+            </div>
+            <div className="suggested">
+                <div className="suggested__header">
+                    <h2 className="suggested__heading">Suggested Item</h2>
+                    <Link className="suggested__link">View All<img src={chevronBack} alt="" className="suggested__link-icon" /></Link>
+
+                </div>
+                <div className="suggested__list">
+
+
+                </div>
+
             </div>
         </div>
     )

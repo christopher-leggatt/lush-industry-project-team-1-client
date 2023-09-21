@@ -50,7 +50,7 @@ function App() {
             />
             {/* Moved the /category/:category route outside of the /profile-list route */}
             <Route path="/category/:category" element={<CategorizedItems />} />
-            <Route path='/profile' element={<CustomerProfile />} />
+            <Route path='/profile' element={<CustomerProfile userData={userData} />} />
           </Routes>
         </main>
         <Navbar />
