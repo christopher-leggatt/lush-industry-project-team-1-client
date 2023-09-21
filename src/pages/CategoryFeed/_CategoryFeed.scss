@@ -42,7 +42,7 @@
 //   margin-left: 20rem;
   position: absolute;
   top: calc(50% - 80px);
-  left: calc(50% + 350px);
+  left: calc(50% + 135px);
   width: 2.5rem;
   height: 2.5rem;
   cursor: pointer;
@@ -85,7 +85,7 @@
 .categoryfeed--inner {
     position: absolute;
     top: 30rem;
-    width: 22.38rem;
+    width: 25rem;
     height: 32.63rem;
     overflow-y: auto;
     text-align: center;
@@ -131,6 +131,7 @@
     width: 22.38rem;
     display: flex;
     flex-direction: row;
+    padding-bottom: 82px;
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
