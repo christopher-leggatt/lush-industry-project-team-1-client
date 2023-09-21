@@ -1,6 +1,6 @@
 import "./_CartItem.scss";
 import React from "react";
-import { formatPrice } from "../../utils";
+import { formatPrice, getImageSrc } from "../../utils";
 import { ReactComponent as Add } from "../../assets/icons/increase_qty.svg";
 import { ReactComponent as Remove } from "../../assets/icons/decrease_qty.svg";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,6 +17,7 @@ const CartItem = ({ product }) => {
     product_online_stock,
     purchaseType,
     id,
+    category,
   } = product;
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
@@ -62,7 +63,7 @@ const CartItem = ({ product }) => {
       </div>
       <div
         className="cart-item__cart-item-card"
-        style={{ backgroundImage: `url(${product.image})` }}
+        style={{ backgroundImage: `url(${getImageSrc(category)})` }}
       >
         <div className={`cart-item__btns-wrapper`}>
           <button

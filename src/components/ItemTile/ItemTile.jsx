@@ -1,7 +1,7 @@
 import "./_ItemTile.scss";
 import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { formatPrice } from "../../utils";
+import { formatPrice, getImageSrc } from "../../utils";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../../state/cartSlice";
 import { ReactComponent as Add } from "../../assets/icons/increase_qty.svg";
@@ -17,6 +17,7 @@ const ItemTile = ({ product, size }) => {
     id,
     product_online_stock,
     product_inshop_stock,
+    category,
   } = product;
 
   const [purchaseType, setPurchaseType] = useState("");
@@ -40,42 +41,41 @@ const ItemTile = ({ product, size }) => {
 
   const handleIncrease = () => {
     if (purchaseType === "inshop" && localCount < product_inshop_stock) {
-        setLocalCount(prevCount => prevCount + 1);
+      setLocalCount((prevCount) => prevCount + 1);
     } else if (purchaseType === "online" && localCount < product_online_stock) {
-        setLocalCount(prevCount => prevCount + 1);
+      setLocalCount((prevCount) => prevCount + 1);
     }
   };
 
   const handleDecrease = () => {
     if (localCount > 0) {
-        setLocalCount(prevCount => prevCount - 1);
+      setLocalCount((prevCount) => prevCount - 1);
     }
   };
 
-  const disableIncreaseButton = 
+  const disableIncreaseButton =
     (purchaseType === "inshop" && localCount >= product_inshop_stock) ||
     (purchaseType === "online" && localCount >= product_online_stock);
 
-    function updateCartBtnWidth() {
-      const cartBtn = cartBtnRef.current;
-  
-      if (!cartBtn) {
-        return;
-      }
-  
-      cartBtn.classList.remove("width-mid", "width-max");
-  
-      if (localCount < 10 && localCount > 0) {
-        cartBtn.classList.add("width-mid");
-      } else if (localCount >= 10) {
-        cartBtn.classList.add("width-max");
-      }
+  function updateCartBtnWidth() {
+    const cartBtn = cartBtnRef.current;
+
+    if (!cartBtn) {
+      return;
+    }
+
+    cartBtn.classList.remove("width-mid", "width-max");
+
+    if (localCount < 10 && localCount > 0) {
+      cartBtn.classList.add("width-mid");
+    } else if (localCount >= 10) {
+      cartBtn.classList.add("width-max");
+    }
   }
-  
+
   useEffect(() => {
-      updateCartBtnWidth();
+    updateCartBtnWidth();
   }, [localCount]);
-  
 
   return (
     <div className={`item-tile item-tile--${size}`}>
@@ -83,7 +83,9 @@ const ItemTile = ({ product, size }) => {
         className={`item-tile__total-cart-wrapper item-tile__total-cart-wrapper--${size}`}
       >
         <p className={`item-tile__total-price item-tile__total-price--${size}`}>
-          {localCount >= 1 ? formatPrice(count * product_price) : formatPrice(product_price)}
+          {localCount >= 1
+            ? formatPrice(count * product_price)
+            : formatPrice(product_price)}
         </p>
         <button
           className={`item-tile__cart-btn cart-btn cart-btn--${size} ${
@@ -95,7 +97,9 @@ const ItemTile = ({ product, size }) => {
           ref={cartBtnRef}
           onClick={() =>
             dispatch(
-              addToCart({ product: { ...product, count: localCount, purchaseType } })
+              addToCart({
+                product: { ...product, count: localCount, purchaseType },
+              })
             )
           }
           style={
@@ -126,7 +130,7 @@ const ItemTile = ({ product, size }) => {
       <img
         className={`item-tile__product-image item-tile__product-image--${size}`}
         alt={product_name}
-        src={product_image}
+        src={getImageSrc(category)}
         onDoubleClick={() => navigate(`/item/${id}`)}
       />
 
