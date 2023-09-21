@@ -44,7 +44,7 @@ export const CreateNewProfile = (props) => {
                 <BlankSpace height="0.3rem" />
                 <Card />
                 <BlankSpace height="1rem" />
-                <Link to='/ExistingProfile'>
+                <Link to='/NewProfile'>
                     <button className="btn-create" type="submit">Create Profile</button>
                 </Link>
                 <Link to='/'>

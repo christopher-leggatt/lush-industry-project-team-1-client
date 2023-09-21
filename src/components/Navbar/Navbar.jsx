@@ -1,16 +1,20 @@
 import "./_Navbar.scss";
 import React from "react";
 import { AppBar, IconButton } from "@mui/material";
-
 import { useNavigate, useLocation } from "react-router-dom";
 import { ReactComponent as Home } from "../../assets/icons/home_navbar.svg";
 import { ReactComponent as Search } from "../../assets/icons/search_navbar.svg";
 import { ReactComponent as Category } from "../../assets/icons/categories_navbar.svg";
 import { ReactComponent as Profile } from "../../assets/icons/profile_navbar.svg";
 import { ReactComponent as Cart } from "../../assets/icons/cart_navbar.svg";
+import cartSlice from "../../state/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+
+
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const cart = useSelector((state) => state.cart);
 
   const navLinks = [
     { label: "Home", route: "/", icon: Home },
@@ -56,8 +60,18 @@ const Navbar = () => {
             justifyContent: "space-between",
             height: "56px",
             color: location.pathname === link.route ? "#4d4d4d" : "#B9BABB",
+            position: link.label === "Cart" ? "relative" : "static",
+            '&:hover': {
+              backgroundColor: 'transparent', // to make sure the background doesn't change
+              opacity: 1,  // removes the opacity change on hover
+          },
           }}
         >
+          {link.label === "Cart" && location.pathname !== "/cart" && cart.length > 0 && <span className="navbar__cart-badge">            
+            <span className="navbar__cart-badge-counter">
+            {cart.length || ""}
+            </span>
+            </span>}
           <link.icon
             className={`navbar__icon ${
               location.pathname === link.route ? "navbar__icon--active" : ""

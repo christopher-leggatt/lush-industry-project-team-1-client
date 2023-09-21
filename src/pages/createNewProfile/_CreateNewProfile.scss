@@ -135,7 +135,14 @@ img.back-button {
   width: 11px;
 }
 
-.__back-accessibility-wrapper {
+.category__back-accessibility-wrapper {
+width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+button.category__accessibility-btn {
   width: 100%;
   display: flex;
   justify-content: space-between;

@@ -8,7 +8,7 @@ const ProfileList = ({ userData }) => {
             <BackHeader backPage='/search' />
             <div className="profile-list-container">
                 <h1 className="profile-list__heading">User Profile</h1>
-                <Link to='profile' className="profile-list__item">
+                <Link to='/profile' className="profile-list__item">
                     <div className="profile-list__text-container">
                         <p className="profile-list__text">{userData.user_name}</p>
                         <p className="profile-list__text">{userData.contact_phone}</p>
