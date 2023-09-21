@@ -18,7 +18,7 @@ const CategoryFeed = () => {
       <Link>
         <img
           src={wheelChairIcon}
-          alt=""
+          alt="/accessibility"
           className="button-icon--accessibility"
         />
       </Link>
