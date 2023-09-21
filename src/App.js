@@ -20,17 +20,17 @@ function App() {
   const [userData, setUserData] = useState({});
   const [currentForm, setCurrentForm] = useState("home");
 
-  const toggleForm = (formName) => {
-    setCurrentForm(formName);
-  };
+  // const toggleForm = (formName) => {
+  //   setCurrentForm(formName);
+  // };
 
   return (
     <div className="App">
-      {currentForm === "home" ? (
+      {/* {currentForm === "home" ? (
         <Home onFormSwitch={toggleForm} />
       ) : (
         <CreateNewProfile onFormSwitch={toggleForm} />
-      )}
+      )} */}
       <BrowserRouter>
   <main>
     <Routes>
