@@ -1,9 +1,12 @@
 import "./_Home.scss";
+import { useState } from "react";
+import { CreateNewProfile } from "../createNewProfile/CreateNewProfile.jsx";
 
 export const Home = (props) => {
-  const [currentForm, setCurrentForm] = useState("home");
+
   return (
     <div className="auth-form-container">
+   
       <h2>Select Shopper Profile Type</h2>
       <button className="Search" type="submit">
         Search For Lush Member
