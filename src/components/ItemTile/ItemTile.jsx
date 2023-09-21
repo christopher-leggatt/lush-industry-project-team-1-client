@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { formatPrice } from "../../utils";
 import { useNavigate } from "react-router-dom";
-import { decreaseCount, increaseCount, addToCart } from "../../state/cartSlice";
+import { addToCart } from "../../state/cartSlice";
 import { ReactComponent as Add } from "../../assets/icons/increase_qty.svg";
 import { ReactComponent as Remove } from "../../assets/icons/decrease_qty.svg";
 import { ReactComponent as ShoppingCart } from "../../assets/icons/cart_small.svg";
