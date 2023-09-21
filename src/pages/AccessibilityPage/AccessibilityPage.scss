@@ -1,0 +1,78 @@
+.accessibilityPage {
+    color: #096888;
+    font-family: SF Pro Display;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    //header
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px
+    };
+    //section wrappers
+    &__main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    //all text
+  h1,
+  h2,
+  p {
+    color: #096888;
+    font-family: SF Pro Display;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  };
+  //Subheader
+  h2{
+    margin-top: 16px;
+  }
+  //individual list item 
+  &__list-item{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom:1px solid #b9babb ;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+  //all icons
+  &__icon {
+    width: 20px;
+    height: 20px;
+    &-box {
+      width: 48px;
+      height: 48px;
+    }
+  }
+  //container nav adjustment
+  //wrapper
+ &__container-nav{
+    display: flex;
+ }
+ //list items
+  &__container-adj {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 124px;
+    height: 117px;
+    flex-shrink: 0;
+    border: 1px solid #b9babb;
+    margin-bottom: 16px;
+    :hover{
+        opacity: 0.5;
+    }
+  }
+  &__div{
+    padding-right: 16px;
+  }
+}
