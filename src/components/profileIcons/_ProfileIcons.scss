@@ -1,19 +1,45 @@
 /* _ProfileIcons.scss */
 
-.image-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  img {
-    width: 50px;
-    height: 50px;
-    margin: 5px;
-    cursor: pointer;
-  }
-  
-  /* Define styles for the highlighted image */
-  .highlighted {
-    border: 1px solid #1a9fff; /* Add a border or other styles to highlight */
-  }
-  
+.profile-container {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  flex-wrap: wrap;
+  background-color: #FFF3FD;
+  border: 1px solid #ffc4f3;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 0.95rem;
+}
+
+.profile-container p {
+  text-align: left;
+  display: block;
+  color: black;
+  letter-spacing: -0.5px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 10px;
+}
+
+.image-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+img {
+  width: 51px;
+  height: 51px;
+  margin: 3px;
+  cursor: pointer;
+}
+
+/* Define styles for the highlighted image */
+.highlighted {
+  border: 1px solid #1a9fff;
+  /* Add a border or other styles to highlight */
+}
