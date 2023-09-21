@@ -35,6 +35,7 @@ function App() {
             <Route path="/item/:id" element={<ItemDetailPage />} />
             <Route path="/test" element={<Test />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/createnewprofile" element={<CreateNewProfile />} />
             <Route
               path="/search"
               element={<SearchPage setUserData={setUserData} />}
@@ -43,6 +44,7 @@ function App() {
               path="/profile-list"
               element={<ProfileList userData={userData} />}
             />
+            {/* Moved the /category/:category route outside of the /profile-list route */}
             <Route path="/category/:category" element={<CategorizedItems />} />
             <Route path="/accessibility" element={<AccessibilityPage />} />
           </Routes>
