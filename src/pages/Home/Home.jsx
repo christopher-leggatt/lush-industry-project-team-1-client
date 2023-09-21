@@ -1,19 +1,22 @@
 import "./_Home.scss";
+import { Link } from 'react-router-dom';
+
 
 export const Home = (props) => {
+
   return (
     <div className="auth-form-container">
+   
       <h2>Select Shopper Profile Type</h2>
       <button className="Search" type="submit">
         Search For Lush Member
       </button>
       <div className="form--style">
-        <button
-          className="NewProfile"
-          onClick={() => props.onFormSwitch("register")}
-        >
-          Create A New User Profile
-        </button>
+        <Link to='./CreateNewProfile'>
+          <button className="NewProfile" >
+            Create A New User Profile
+          </button>
+        </Link>
         <button className="Guest" type="submit">
           Continue Shopping As A Guest
         </button>

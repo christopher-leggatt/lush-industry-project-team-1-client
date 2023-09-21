@@ -41,7 +41,7 @@ const Navbar = () => {
         alignItems: "flex-start",
         columnGap: "24px",
         paddingTop: "8px",
-        borderTop: "2px solid #999999",
+        borderTop: "1px solid #999999",
         backgroundColor: "white",
       }}
     >
