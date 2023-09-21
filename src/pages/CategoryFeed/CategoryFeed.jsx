@@ -3,15 +3,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import wheelChairIcon from "../../assets/icons/wheelchair.svg";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector, shallowEqual } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import SearchbarFilter from "../../components/SearchbarFilter/SearchbarFilter";
 import { categoriesArray } from "../../utils";
+import ChipCarousel from "../../components/ChipCarousel/ChipCarousel";
 
 const CategoryFeed = () => {
   const navigate = useNavigate();
 
   const cart = useSelector((state) => state.cart);
-  const chips = ["chip1", "chip2", "chip3", "chip4", "chip5"];
+  const chips = ["New Products", "On Sale", "Halloween Collection", "Under $20", "Best Sellers"];
+  const tileLinks = ["bath_bombs", "cleansers_and_scrubs", "hair_treatments", "body_scrubs", "styling", "aroma_and_bath_melts", "makeup", "conditioners"];
+
+  const formatDisplayName = (str) => {
+    return str.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  }
 
   return (
     <section className="category">
@@ -23,8 +29,12 @@ const CategoryFeed = () => {
         />
       </Link>
 
-      <SearchbarFilter categories={categoriesArray} />
-      <div className="chips">
+      <SearchbarFilter categories={chips} />
+
+      <div className="spacer" style={{margin: "10px 0"}}></div>
+
+      <ChipCarousel array={chips} />
+      {/* <div className="chips">
         <div className="chips__1">
           <div className="chips__1--display">New Products</div>
         </div>
@@ -40,11 +50,21 @@ const CategoryFeed = () => {
         <div className="chips__1">
           <div className="chips__1--display">Best Sellers</div>
         </div>
-      </div>
+      </div> */}
 
       <div className="categoryfeed--inner">
         <div className="categoryfeed__component--parent">
-          <div className="categoryfeed__component">
+        {tileLinks.map((link, index) => (
+            <div 
+              key={index}
+              className={`categoryfeed__component${index + 1}`}
+              onClick={() => navigate(`/category/${link}`)}
+            >
+              <div className="selection-field" />
+              <b className="item-name">{formatDisplayName(link)}</b>
+            </div>
+          ))}
+          {/* <div className="categoryfeed__component">
             <div className="selection-field" />
             <b className="item-name">Bath & Shower</b>
           </div>
@@ -75,7 +95,7 @@ const CategoryFeed = () => {
           <div className="categoryfeed__component7">
             <div className="selection-field" />
             <b className="item-name">Discover</b>
-          </div>
+          </div> */}
           <div className="frame-child" />
         </div>
       </div>

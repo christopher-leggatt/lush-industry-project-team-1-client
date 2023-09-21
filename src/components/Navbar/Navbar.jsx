@@ -61,6 +61,10 @@ const Navbar = () => {
             height: "56px",
             color: location.pathname === link.route ? "#4d4d4d" : "#B9BABB",
             position: link.label === "Cart" ? "relative" : "static",
+            '&:hover': {
+              backgroundColor: 'transparent', // to make sure the background doesn't change
+              opacity: 1,  // removes the opacity change on hover
+          },
           }}
         >
           {link.label === "Cart" && location.pathname !== "/cart" && cart.length > 0 && <span className="navbar__cart-badge">            
