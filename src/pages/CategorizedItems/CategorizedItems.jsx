@@ -36,19 +36,19 @@ const CategorizedItems = () => {
     console.log("Categorized products:", categorizedProducts);
 
   return (
-    <section className="category">
-      <div className="category__back-accessibility-wrapper">
-        <button className="category__back-btn" onClick={goBack}>
-          <Back className="category__back-icon" />
+    <section className="categorized-items">      
+      <div className="categorized-items__back-accessibility-wrapper">
+        <button className="categorized-items__back-btn" onClick={goBack}>
+          <Back className="categorized-items__back-icon" />
         </button>
-        <button className="category__accessibility-btn">
-          <Wheelchair className="category__accessibility-icon" />
+        <button className="categorized-items__accessibility-btn">
+          <Wheelchair className="categorized-items__accessibility-icon" />
         </button>
       </div>
 
       <SearchbarFilter categories={categoriesArray} />
 
-      <h1 className="category__heading">{formatName(category) || "Loading"}</h1>
+      <h1 className="categorized-items__heading">{formatName(category) || "Loading"}</h1>
 
       <ChipCarousel array={categoriesArray} />
 

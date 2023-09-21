@@ -10,13 +10,13 @@ import CartItem from "../../components/CartItem/CartItem";
 const Cart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const cart = useSelector((state) => state.cart);  
+  const cart = useSelector((state) => state.cart);
 
   const totalPrice = () => {
-    return cart.reduce((sum, item) => {        
-        return sum + item.product_price * item.count;
+    return cart.reduce((sum, item) => {
+      return sum + item.product_price * item.count;
     }, 0);
-};
+  };
 
   function goBack() {
     navigate(-1);
@@ -24,19 +24,19 @@ const Cart = () => {
 
   return (
     <section className="cart">
-      <div className="cart__back-accessibility-wrapper">
-        <button className="cart__back-btn" onClick={goBack}>
-          <Back className="cart__back-icon" />
-        </button>
-        <button className="cart__accessibility-btn">
-          <Wheelchair className="cart__accessibility-icon" />
-        </button>
-      </div>
+          <div className="cart__back-accessibility-wrapper">
+            <button className="cart__back-btn" onClick={goBack}>
+              <Back className="cart__back-icon" />
+            </button>
+            <button className="cart__accessibility-btn">
+              <Wheelchair className="cart__accessibility-icon" />
+            </button>
+          </div>
 
-      <h1 className="cart__heading">Shopping Cart</h1>
+          <h1 className="cart__heading">Shopping Cart</h1>
 
       {cart.map((item, index) => (
-        <CartItem key={`cart-item-${index}`} product={item}/>
+        <CartItem key={`cart-item-${index}`} product={item} />
       ))}
       <article className="cart__checkout-profile-btns-wrapper">
         <button
