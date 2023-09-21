@@ -1,4 +1,4 @@
-import './BackHeader.scss';
+import './_BackHeader.scss';
 import headerLogo from '../../assets/logo/Lush-black.jpg';
 import backIcon from '../../assets/icons/back.svg';
 import wheelChairIcon from '../../assets/icons/wheelchair.svg';
