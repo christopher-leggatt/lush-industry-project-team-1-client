@@ -16,7 +16,7 @@ import CategorizedItems from "./pages/CategorizedItems/CategorizedItems";
 import CategoryFeed from "./pages/CategoryFeed/CategoryFeed";
 import AccessibilityPage from "./pages/AccessibilityPage/AccessiblityPage";
 import CustomerProfile from './pages/CustomerProfile/CustomerProfile';
-import ExistingProfile from "./pages/ExistingProfile/ExistingProfile";
+import NewProfile from "./pages/NewProfile/NewProfile";
 
 
 function App() {
@@ -42,6 +42,7 @@ function App() {
       <Route path="/test" element={<Test />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/CreateNewProfile" element={<CreateNewProfile />} />
+      <Route path="/NewProfile" element={<NewProfile />} />
       <Route
         path='/search'
         element={<SearchPage setUserData={setUserData} />}
@@ -50,7 +51,7 @@ function App() {
         path='/profile-list'
         element={<ProfileList userData={userData} />}
       />
-      <Route path="/ExistingProfile" element={<ExistingProfile />} />
+      
       {/* Moved the /category/:category route outside of the /profile-list route */}
       <Route path="/categoryfeed" element={<CategoryFeed />} />
       <Route path="/category/:category" element={<CategorizedItems />} />
