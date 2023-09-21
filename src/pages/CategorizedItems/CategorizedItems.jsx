@@ -3,12 +3,12 @@ import React, { useState, useEffect } from "react";
 import { ReactComponent as Back } from "../../assets/icons/back.svg";
 import { ReactComponent as Wheelchair } from "../../assets/icons/wheelchair.svg";
 import { useNavigate, useParams } from "react-router-dom";
-import { useDispatch, useSelector, shallowEqual } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { formatPrice } from "../../utils";
 import { getCategorizedProducts } from "../../state/storeSlice";
 import SearchbarFilter from "../../components/SearchbarFilter/SearchbarFilter";
 import ItemTile from "../../components/ItemTile/ItemTile";
-import { categoriesArray } from "../../utils";
+import { categoriesArray, formatName } from "../../utils";
 import ChipCarousel from "../../components/ChipCarousel/ChipCarousel";
 
 const CategorizedItems = () => {
@@ -20,7 +20,6 @@ const CategorizedItems = () => {
   );
 
   const cart = useSelector((state) => state.cart);
-  const chips = ["chip1", "chip2", "chip3", "chip4", "chip5"];
 
   useEffect(() => {
     if (category) {
@@ -49,7 +48,7 @@ const CategorizedItems = () => {
 
       <SearchbarFilter categories={categoriesArray} />
 
-      <h1 className="category__heading">{"Bath & Shower"}</h1>
+      <h1 className="category__heading">{formatName(category) || "Loading"}</h1>
 
       <ChipCarousel array={categoriesArray} />
 
