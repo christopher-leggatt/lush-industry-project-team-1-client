@@ -38,7 +38,7 @@ function App() {
       <Route path='/item/:id' element={<ItemDetailPage />} />
       <Route path="/test" element={<Test />} />
       <Route path="/cart" element={<Cart />} />
-      <Route path="/createnewprofile" element={<CreateNewProfile />} />
+      <Route path="/CreateNewProfile" element={<CreateNewProfile />} />
       <Route
         path='/search'
         element={<SearchPage setUserData={setUserData} />}

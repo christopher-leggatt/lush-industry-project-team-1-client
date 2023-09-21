@@ -1,46 +1,49 @@
-import React from 'react';
-
-function Card({ title, description }) {
-  return (
-    <div className="col-md-4 mb-4">
-      <div className="card">
-        <div className="card-body">
-          <h5 className="card-title">{title}</h5>
-          <p className="card-text">{description}</p>
-        </div>
-      </div>
-    </div>
-  );
+/* Card styles */
+.card {
+    border: 0px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0.1rem;
+    width: 109px; /* You can adjust the width as needed */
+    padding: 0px;
 }
 
-export default function CardContainer() {
-  // Dummy data for three cards
-  const cards = [
-    {
-      title: 'Card 1',
-      description: 'This is card 1.',
-    },
-    {
-      title: 'Card 2',
-      description: 'This is card 2.',
-    },
-    {
-      title: 'Card 3',
-      description: 'This is card 3.',
-    },
-  ];
+.card-body {
+    padding: 0.5rem;
+}
 
-  return (
-    <div className="container">
-      <div className="row">
-        {cards.map((card, index) => (
-          <Card
-            key={index}
-            title={card.title}
-            description={card.description}
-          />
-        ))}
-      </div>
-    </div>
-  );
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-size: 1rem;
+    text-align: left; /* Align text to the left */
+}
+
+/* Container styles */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Cards will be evenly spaced */
+    padding: 0rem; /* Add spacing around the cards */
+}
+
+/* Define unique background colors for each card */
+.card:nth-child(1) {
+    background-color: #FFC4F3; /* Card 1 color */
+}
+
+.card:nth-child(2) {
+    background-color: #83D1E7; /* Card 2 color */
+}
+
+.card:nth-child(3) {
+    background-color: #96E19E; /* Card 3 color */
+}
+
+h5 {
+    text-align: left;
 }
