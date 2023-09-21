@@ -57,6 +57,6 @@ const categoryImages = {
 };
 
 export function getImageSrc(category) {
-  return categoryImages[category] || '/images/Lush-black.jpg';
+  return categoryImages[category] || '/images/bath_bomb_7.jpg';
 }
 
