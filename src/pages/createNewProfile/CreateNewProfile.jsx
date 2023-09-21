@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './_CreateNewProfile.scss';
 import ProfileIcons from '../../components/profileIcons/ProfileIcons';
 import Card from '../../components/Card/Card';
+import BlankSpace from '../../components/BlankSpace/BlankSpace';
 import BackButton from '../../assets/icons/back-button.svg';
 import { Link } from 'react-router-dom';
 
@@ -36,11 +37,16 @@ export const CreateNewProfile = (props) => {
                 <input value={pronouns} onChange={(e) => setPronouns(e.target.value)} type="pronouns" placeholder="Customer’s Preferred Pronouns" id="pronouns" name="pronouns" />
                 <ProfileIcons />
                 <button className="btn-create" type="submit">Create</button>
+                <h3>Personalized Quizzes</h3>
                 <Card />
+                <BlankSpace height="5rem" />
+
             </form>
-            <h3>Personalized Quizzes</h3>
+            
             
 
         </div>
     )
 }
+
+export default CreateNewProfile;
