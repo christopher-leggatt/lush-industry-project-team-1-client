@@ -1,5 +1,5 @@
 import './ItemDetailPage.scss';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import slideImage1 from '../../assets/images/FLYWAY HAIR 1.jpg';
 import slideImage2 from '../../assets/images/FLYWAY HAIR 2.jpg';
 import slideImage3 from '../../assets/images/FLYWAY HAIR 3.jpg';
@@ -15,33 +15,41 @@ import miusIcon from '../../assets/icons/minus.svg';
 import planIcon from '../../assets/icons/plane.svg';
 import { useEffect, useRef, useState } from 'react';
 import ItemTile from '../../components/ItemTile/ItemTile';
+import axios from 'axios';
 
 
 const ItemDetailPage = () => {
+    const API_URL = process.env.REACT_APP_BACKEND_URL;
+    const { id } = useParams();
+    const [itemDetail, setItemDetail] = useState({});
+    const [shopStock, setShopStock] = useState(0);
+    const [onlineStock, setOnlineStock] = useState(0);
+
 
     const increaseButtonRef = useRef();
     const plusIconRef = useRef();
 
-    const shopStock = 2;
-    const onlineStock = 4;
     let stockType = ((shopStock === 0) ? (onlineStock) : (shopStock))
     const [counterActive, setCounterActive] = useState(false);
     let [counter, setCounter] = useState(0);
     const [buttonText, setButtonText] = useState('Add To Cart');
     const [buttonIcon, setButtonIcon] = useState(cartIcon);
     useEffect(() => {
-        if (shopStock === 0) {
-            setButtonIcon(planIcon);
-            setButtonText('Ship To Home')
-        }
-    }, [shopStock])
+        axios.get(`${API_URL}/product/${id}`)
+            .then(response => {
+                const data = response.data[0];
+                setItemDetail(data);
+                setShopStock(data.product_inshop_stock);
+                setOnlineStock(data.product_online_stock);
 
-    const product = {
-        price: 15,
-        name: "Test",
-        image_url: "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png",
-        id: 1,
-    };
+                if (data.product_inshop_stock === 0) {
+                    setButtonIcon(planIcon);
+                    setButtonText('Ship To Home');
+                }
+            });
+
+    }, [])
+
 
     return (
         <section className="item-section">
@@ -61,8 +69,8 @@ const ItemDetailPage = () => {
             <div className="item">
                 <div className="item__header">
                     <div className="item__title-container">
-                        <h2 className="item__title">Flyway Hair</h2>
-                        <h2 className="item__title item__title--price">$16</h2>
+                        <h2 className="item__title">{itemDetail.product_name}</h2>
+                        <h2 className="item__title item__title--price">{`$${itemDetail.product_price}`}</h2>
                     </div>
                     <div className="item__stock-container">
                         <div className="item__stock-group">
@@ -81,7 +89,7 @@ const ItemDetailPage = () => {
                     </div>
                 </div>
                 <p className="item__detail">
-                    Good for oily, fine and thin hair looking to add volume and shine while deeply-cleansing the scalp and strands.
+                    {itemDetail.product_description}
                 </p>
                 <div className="item__button-container">
                     {counterActive ? (
@@ -140,18 +148,7 @@ const ItemDetailPage = () => {
 
                 </div>
                 <div className="suggested__list">
-                    <div className="suggested__item">
-                        <ItemTile product={product} size='small' />
-                    </div>
-                    <div className="suggested__item">
-                        <ItemTile product={product} size='small' />
-                    </div>
-                    <div className="suggested__item">
-                        <ItemTile product={product} size='small' />
-                    </div>
-                    <div className="suggested__item">
-                        <ItemTile product={product} size='small' />
-                    </div>
+
 
 
                 </div>
@@ -159,7 +156,7 @@ const ItemDetailPage = () => {
             </div>
             {counter === 0 ? (<></>) : (
                 <div className="total-popup">
-                    <p className="total-popup__text">{`${counter} ${(counter === 1) ? `Item` : 'Items'} ($32)`}</p>
+                    <p className="total-popup__text">{`${counter} ${(counter === 1) ? `Item` : 'Items'} ($${itemDetail.product_price * counter})`}</p>
                 </div>
             )}
         </section>

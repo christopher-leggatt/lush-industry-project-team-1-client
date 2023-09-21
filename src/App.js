@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CreateNewProfile } from "./pages/createNewProfile/CreateNewProfile";
 import Navbar from "./components/Navbar/Navbar";
 import { Home } from "./pages/Home/Home";
+
 import ItemDetailPage from "./pages/ItemDetailPage/ItemDetailPage";
 import Test from "./pages/Test/Test";
 import Cart from "./pages/Cart/Cart";
@@ -14,6 +15,8 @@ import { useState } from "react";
 import CategorizedItems from "./pages/CategorizedItems/CategorizedItems";
 import CategoryFeed from "./pages/CategoryFeed/CategoryFeed";
 import AccessibilityPage from "./pages/AccessibilityPage/AccessiblityPage";
+import CustomerProfile from './pages/CustomerProfile/CustomerProfile';
+import ExistingProfile from "./pages/ExistingProfile/ExistingProfile";
 
 
 function App() {
@@ -47,14 +50,17 @@ function App() {
         path='/profile-list'
         element={<ProfileList userData={userData} />}
       />
+      <Route path="/ExistingProfile" element={<ExistingProfile />} />
       {/* Moved the /category/:category route outside of the /profile-list route */}
       <Route path="/categoryfeed" element={<CategoryFeed />} />
       <Route path="/category/:category" element={<CategorizedItems />} />
       <Route path="/accessibility" element={<AccessibilityPage />} />
+       <Route path='/profile' element={<CustomerProfile userData={userData} />} />
     </Routes>
   </main>
   <Navbar />
 </BrowserRouter>
+
 
     </div>
   );
