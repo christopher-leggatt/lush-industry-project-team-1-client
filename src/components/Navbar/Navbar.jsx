@@ -19,7 +19,7 @@ const Navbar = () => {
   const navLinks = [
     { label: "Home", route: "/", icon: Home },
     { label: "Search", route: "/search", icon: Search },
-    { label: "Shop", route: "/categoryfeed", icon: Category },
+    { label: "Shop", route: "/shop", icon: Category },
     { label: "Profile", route: "/profile", icon: Profile },
     { label: "Cart", route: "/cart", icon: Cart },
   ];

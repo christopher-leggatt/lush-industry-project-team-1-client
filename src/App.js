@@ -16,6 +16,7 @@ import CategorizedItems from "./pages/CategorizedItems/CategorizedItems";
 import CategoryFeed from "./pages/CategoryFeed/CategoryFeed";
 import AccessibilityPage from "./pages/AccessibilityPage/AccessiblityPage";
 import CustomerProfile from './pages/CustomerProfile/CustomerProfile';
+import ExistingProfile from "./pages/ExistingProfile/ExistingProfile";
 
 
 function App() {
@@ -34,31 +35,31 @@ function App() {
         <CreateNewProfile onFormSwitch={toggleForm} />
       )} */}
       <BrowserRouter>
-
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path='/item/:id' element={<ItemDetailPage />} />
-            <Route path="/test" element={<Test />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/CreateNewProfile" element={<CreateNewProfile />} />
-            <Route
-              path='/search'
-              element={<SearchPage setUserData={setUserData} />}
-            />
-            <Route
-              path='/profile-list'
-              element={<ProfileList userData={userData} />}
-            />
-            {/* Moved the /category/:category route outside of the /profile-list route */}
-            <Route path="/categoryfeed" element={<CategoryFeed />} />
-            <Route path="/category/:category" element={<CategorizedItems />} />
-            <Route path="/accessibility" element={<AccessibilityPage />} />
-            <Route path='/profile' element={<CustomerProfile userData={userData} />} />
-          </Routes>
-        </main>
-        <Navbar />
-      </BrowserRouter>
+  <main>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path='/item/:id' element={<ItemDetailPage />} />
+      <Route path="/test" element={<Test />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/CreateNewProfile" element={<CreateNewProfile />} />
+      <Route
+        path='/search'
+        element={<SearchPage setUserData={setUserData} />}
+      />
+      <Route
+        path='/profile-list'
+        element={<ProfileList userData={userData} />}
+      />
+      <Route path="/ExistingProfile" element={<ExistingProfile />} />
+      {/* Moved the /category/:category route outside of the /profile-list route */}
+      <Route path="/categoryfeed" element={<CategoryFeed />} />
+      <Route path="/category/:category" element={<CategorizedItems />} />
+      <Route path="/accessibility" element={<AccessibilityPage />} />
+       <Route path='/profile' element={<CustomerProfile userData={userData} />} />
+    </Routes>
+  </main>
+  <Navbar />
+</BrowserRouter>
 
 
     </div>
