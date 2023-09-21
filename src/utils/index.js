@@ -44,3 +44,19 @@ export const formatName = (name) => {
     .replace(/_/g, " ")
     .replace(/\b(\w)/g, (char) => char.toUpperCase());
 };
+
+const categoryImages = {
+  "bath_bombs": '/images/bath_bombs.jpg',
+  "cleansers_and_scrubs": '/images/cleansers_and_scrubs.jpg',
+  "hair_treatments": '/images/hair_treatments.jpg',
+  "body_scrubs": '/images/body_scrubs.jpg',
+  "styling": '/images/styling.jpg',
+  "aroma_and_bath_melts": '/images/aroma_and_bath_melts.jpg',
+  "makeup": '/images/makeup.jpg',
+  "conditioners": '/images/conditioners.jpg',
+};
+
+export function getImageSrc(category) {
+  return categoryImages[category] || '/images/Lush-black.jpg';
+}
+
