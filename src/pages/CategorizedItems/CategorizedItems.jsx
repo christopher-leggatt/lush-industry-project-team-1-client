@@ -36,7 +36,7 @@ const CategorizedItems = () => {
     console.log("Categorized products:", categorizedProducts);
 
   return (
-    <section className="category">
+    <section className="category">      
       <div className="category__back-accessibility-wrapper">
         <button className="category__back-btn" onClick={goBack}>
           <Back className="category__back-icon" />
